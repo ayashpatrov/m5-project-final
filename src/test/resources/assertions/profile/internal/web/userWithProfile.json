@@ -1,0 +1,23 @@
+{
+  "id": 1,
+  "lastLogin": null,
+  "mailNotifications": [
+    "overdue",
+    "assigned",
+    "deadline"
+  ],
+  "contacts": [
+    {
+      "code": "mobile",
+      "value": "+01234567890"
+    },
+    {
+      "code": "website",
+      "value": "user.com"
+    },
+    {
+      "code": "skype",
+      "value": "userSkype"
+    }
+  ]
+}

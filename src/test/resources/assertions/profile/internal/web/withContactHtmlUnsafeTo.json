@@ -1,0 +1,10 @@
+{
+  "type": "about:blank",
+  "title": "Unprocessable Entity",
+  "status": 422,
+  "detail": "Validation failed for argument [0] in public void com.javarush.jira.profile.internal.web.ProfileRestController.update(com.javarush.jira.profile.ProfileTo,com.javarush.jira.login.AuthUser): [Field error in object 'profileTo' on field 'contacts[].value': rejected value [<script>alert(123)</script>]; codes [NoHtml.profileTo.contacts[].value,NoHtml.profileTo.contacts.value,NoHtml.contacts[].value,NoHtml.contacts.value,NoHtml.value,NoHtml]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [profileTo.contacts[].value,contacts[].value]; arguments []; default message [contacts[].value]]; default message [{error.noHtml}]] ",
+  "instance": "/api/profile",
+  "invalid_params": {
+    "contacts[].value": "{error.noHtml}"
+  }
+}
