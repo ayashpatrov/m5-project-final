@@ -1,0 +1,7 @@
+{
+  "type": "about:blank",
+  "title": "Unprocessable Entity",
+  "status": 422,
+  "detail": "Value with key WrongContactCode not found",
+  "instance": "/api/profile"
+}
