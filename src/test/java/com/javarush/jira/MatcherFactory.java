@@ -31,8 +31,20 @@ public class MatcherFactory {
 
     public static <T> Matcher<T> usingIgnoringFieldsComparator(Class<T> clazz, String... fieldsToIgnore) {
         return usingAssertions(clazz,
-                (a, e) -> assertThat(a).usingRecursiveComparison().ignoringFields(fieldsToIgnore).isEqualTo(e),
-                (a, e) -> assertThat(a).usingRecursiveFieldByFieldElementComparatorIgnoringFields(fieldsToIgnore).isEqualTo(e));
+                (a, e) -> assertThat(a)
+                        .usingRecursiveComparison()
+                        .ignoringFields(fieldsToIgnore)
+                        .withComparatorForType(
+                                (o1, o2) -> java.util.Objects.equals(
+                                        new java.util.HashSet<>((java.util.Collection<?>) o1),
+                                        new java.util.HashSet<>((java.util.Collection<?>) o2)
+                                ) ? 0 : 1,
+                                java.util.Set.class
+                        )
+                        .isEqualTo(e),
+                (a, e) -> assertThat(a)
+                        .usingRecursiveFieldByFieldElementComparatorIgnoringFields(fieldsToIgnore)
+                        .isEqualTo(e));
     }
 
     public static class Matcher<T> {
